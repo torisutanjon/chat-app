@@ -77,20 +77,20 @@ const Profile = () => {
             <div className="relative h-[45%] w-full flex flex-col items-center justify-end">
               {token.verificationStatus === false && (
                 <button
-                  className="relative h-[50px] w-full text-[18px] border-[2px] border-black/75 rounded-[8px] mb-[15px]"
+                  className="relative h-[50px] w-full text-[18px] border-[2px] border-black/75 rounded-[8px] mb-[15px] md:text-white/50 md:border-none md:bg-black/75 md:rounded-none mb-[15px] md:w-[350px] md:text-[14px]"
                   onClick={() => verifyEmailHandler()}
                 >
                   VERIFY EMAIL
                 </button>
               )}
               <button
-                className="relative h-[50px] w-full text-[18px] border-[2px] border-black/75 rounded-[8px] mb-[15px]"
+                className="relative h-[50px] w-full text-[18px] border-[2px] border-black/75 rounded-[8px] md:text-white/50 md:border-none md:bg-black/75 md:rounded-none mb-[15px] md:w-[350px] md:text-[14px]"
                 onClick={() => logoutHandler()}
               >
                 LOGOUT
               </button>
               <button
-                className="relative h-[50px] w-full text-[18px] border-[2px] border-black/75 rounded-[8px]"
+                className="relative h-[50px] w-full text-[18px] border-[2px] border-black/75 rounded-[8px] md:w-[350px] md:text-white/50 md:border-none md:bg-black/75 md:rounded-none mb-[15px] md:w-[350px] md:text-[14px]"
                 onClick={() => (window.location.href = "/")}
               >
                 HOME

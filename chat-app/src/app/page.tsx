@@ -34,7 +34,9 @@ const Home = () => {
       <main className="relative h-[90%] w-full flex flex-col items-center justify-between">
         <div className="relative h-[85%] w-[90%]">
           <div className="relative h-full w-full flex items-center justify-center">
-            <p className="text-black/25">Kindly enter a chat room first</p>
+            <p className="text-black/25 md:text-[22px]">
+              Kindly enter a chat room first
+            </p>
           </div>
         </div>
       </main>

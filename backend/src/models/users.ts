@@ -23,7 +23,7 @@ const USER_ACCOUNT_SCHEMA = new mongoose.Schema(
       required: true,
       default: false,
     },
-    room: {
+    socket: {
       type: String,
       required: false,
     },

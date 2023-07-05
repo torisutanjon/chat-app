@@ -1,5 +1,7 @@
-import jwt from "jwt-decode";
+"use client";
 
+import jwt from "jwt-decode";
+import { useEffect } from "react";
 interface PropTypes {
   sender_id: string;
   sendername: string;
@@ -28,13 +30,9 @@ const MessageComponent = ({ sender_id, sendername, message }: PropTypes) => {
         >
           {sendername}
         </p>
-        <textarea
-          name=""
-          id=""
-          value={message}
-          className="h-[65px] max-w-[150px] bg-[#3A1078]/75 text-white/75 text-[14px] p-[5px] rounded-[5px]"
-          readOnly
-        />
+        <div className="max-w-[150px] bg-[#3A1078]/75 rounded-[5px] text-white/50 text-[14px] p-[15px] md:max-w-[450px]">
+          {message}
+        </div>
       </div>
     </div>
   );

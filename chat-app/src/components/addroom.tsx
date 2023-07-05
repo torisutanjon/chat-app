@@ -79,7 +79,14 @@ const AddRoom = ({ hideAddComponent }: PropTypes) => {
         name="room_name"
         onChange={onChangeHandler}
       />
-      <div className="absolute top-[175px] h-[35px] w-[150px] bg-[#3A1078]/50 flex items-center justify-center text-white text-[12px]">
+      <div
+        className="absolute top-[175px] h-[35px] w-[150px] bg-[#3A1078]/50 flex items-center justify-center text-white text-[12px] cursor-pointer "
+        onClick={() =>
+          setIsOpen((type) => {
+            return !type;
+          })
+        }
+      >
         {roomType}
       </div>
       <div

@@ -87,55 +87,61 @@ const SignUpPage = () => {
   return (
     <div className="relative left-0 top-0 h-screen w-screen flex items-center justify-center">
       <div className="relative h-[70%] w-[80%] flex flex-col items-center justify-between">
-        <p className="text-[24px] text-[#313131]/25 font-bold">
+        <p className="text-[24px] text-[#313131]/25 font-bold  md:text-[14px]">
           Create Account
         </p>
         <div className="relative h-[50%] w-full flex flex-col items-center justify-between">
-          <p className="text-[16px] text-[#313131]/75 p-0 m-0">Email:</p>
+          <p className="text-[16px] text-[#313131]/75 p-0 m-0  md:text-[14px]">
+            Email:
+          </p>
           <input
             type="text"
             id="email-input"
-            className="h-[35px] w-full border-b-[1px] border-b-black/75 text-center outline-none"
+            className="h-[35px] w-full border-b-[1px] border-b-black/75 text-center outline-none md:w-[350px] md:text-black/50 md:text-[14px]"
           />
-          <p className="text-[16px] text-[#313131]/75 p-0 m-0">Username:</p>
+          <p className="text-[16px] text-[#313131]/75 p-0 m-0  md:text-[14px]">
+            Username:
+          </p>
           <input
             type="text"
             id="username-input"
-            className="h-[35px] w-full border-b-[1px] border-b-black/75 text-center outline-none"
+            className="h-[35px] w-full border-b-[1px] border-b-black/75 text-center outline-none md:w-[350px] md:text-black/50 md:text-[14px]"
           />
-          <p className="text-[16px] text-[#313131]/75 p-0 m-0">Password:</p>
+          <p className="text-[16px] text-[#313131]/75 p-0 m-0  md:text-[14px]">
+            Password:
+          </p>
           <input
             type="password"
             id="password-input"
-            className="h-[35px] w-full border-b-[1px] border-b-black/75 text-center outline-none"
+            className="h-[35px] w-full border-b-[1px] border-b-black/75 text-center outline-none md:w-[350px] md:text-black/50 md:text-[14px]"
           />
-          <p className="text-[16px] text-[#313131]/75 p-0 m-0">
+          <p className="text-[16px] text-[#313131]/75 p-0 m-0  md:text-[14px]">
             Confirm Password:
           </p>
           <input
             type="password"
             id="cpassword-input"
-            className="h-[35px] w-full border-b-[1px] border-b-black/75 text-center outline-none"
+            className="h-[35px] w-full border-b-[1px] border-b-black/75 text-center outline-none md:w-[350px] md:text-black/50 md:text-[14px]"
           />
         </div>
         <Link href="/login" className="text-[12px] text-black/50 underline">
           Already have an account?
         </Link>
-        <div className="h-[20%] w-full flex flex-col items-center justify-between">
+        <div className="h-[20%] w-full flex flex-col items-center justify-between md:h-[25%]">
           <button
-            className="h-[30px] w-[125px] border-[1px] border-black/75 rounded-[50px] text-[12px] mb-[15px]"
+            className="h-[30px] w-[125px] border-[1px] border-black/75 rounded-[50px] text-[12px] mb-[15px] md:h-[35px] md:w-[175px] md:rounded-none md:border-none md:bg-black/75 md:text-white/50"
             onClick={() => createAccountHandler()}
           >
             Create Account
           </button>
           <button
-            className="h-[30px] w-[125px] border-[1px] border-black/75 rounded-[50px] text-[12px] mb-[15px]"
+            className="h-[30px] w-[125px] border-[1px] border-black/75 rounded-[50px] text-[12px] mb-[15px] md:h-[35px] md:w-[175px] md:rounded-none md:border-none md:bg-black/75 md:text-white/50"
             onClick={() => clearHandler()}
           >
             Clear
           </button>
           <button
-            className="h-[30px] w-[125px] border-[1px] border-black/75 rounded-[50px] text-[12px]"
+            className="h-[30px] w-[125px] border-[1px] border-black/75 rounded-[50px] text-[12px] md:h-[35px] md:w-[175px] md:rounded-none md:border-none md:bg-black/75 md:text-white/50"
             onClick={() => (window.location.href = "/")}
           >
             Home

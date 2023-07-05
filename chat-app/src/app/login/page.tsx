@@ -60,20 +60,22 @@ const LoginPage = () => {
       <div className="relative h-[70%] w-[80%] flex flex-col items-center justify-between">
         <p className="text-[#313131]/25 text-[24px] font-bold">Login Account</p>
         <div className="relative h-[20%] w-full flex flex-col items-center justify-between">
-          <p className="text-[16px] text-[#313131]/75 p-0 m-0">
+          <p className="text-[16px] text-[#313131]/75 p-0 m-0 md:text-[14px]">
             Email or Username:
           </p>
           <input
             type="text"
-            className="h-[35px] w-full border-b-[1px] border-b-black/75 text-center outline-none"
+            className="h-[35px] w-full border-b-[1px] border-b-black/75 text-center outline-none md:w-[350px] md:text-black/50 md:text-[14px]"
             name="username"
             onChange={inputOnchangeHandler}
             value={userInfo.username}
           />
-          <p className="text-[16px] text-[#313131]/75">Password:</p>
+          <p className="text-[16px] text-[#313131]/75 md:text-[14px]">
+            Password:
+          </p>
           <input
             type="password"
-            className="h-[35px] w-full border-b-[1px] border-b-black/75 text-center outline-none"
+            className="h-[35px] w-full border-b-[1px] border-b-black/75 text-center outline-none md:w-[350px] md:text-black/50 md:text-[14px]"
             name="password"
             onChange={inputOnchangeHandler}
             value={userInfo.password}
@@ -82,21 +84,21 @@ const LoginPage = () => {
         <Link href="/signup" className="text-[12px] text-black/50 underline">
           Create Account
         </Link>
-        <div className="h-[20%] w-full flex flex-col items-center justify-end">
+        <div className="h-[20%] w-full flex flex-col items-center justify-end md:h-[30%]">
           <button
-            className="h-[30px] w-[125px] border-[1px] border-black/75 rounded-[50px] text-[12px] mb-[15px]"
+            className="h-[30px] w-[125px] border-[1px] border-black/75 rounded-[50px] text-[12px] mb-[15px] md:h-[35px] md:w-[175px] md:rounded-none md:border-none md:bg-black/75 md:text-white/50"
             onClick={() => loginHandler()}
           >
             Login
           </button>
           <button
-            className="h-[30px] w-[125px] border-[1px] border-black/75 rounded-[50px] text-[12px] mb-[15px]"
+            className="h-[30px] w-[125px] border-[1px] border-black/75 rounded-[50px] text-[12px] mb-[15px] md:h-[35px] md:w-[175px] md:rounded-none md:border-none md:bg-black/75 md:text-white/50"
             onClick={() => clearHandler()}
           >
             Clear
           </button>
           <button
-            className="h-[30px] w-[125px] border-[1px] border-black/75 rounded-[50px] text-[12px]"
+            className="h-[30px] w-[125px] border-[1px] border-black/75 rounded-[50px] text-[12px] md:h-[35px] md:w-[175px] md:rounded-none md:border-none md:bg-black/75 md:text-white/50"
             onClick={() => (window.location.href = "/")}
           >
             Home

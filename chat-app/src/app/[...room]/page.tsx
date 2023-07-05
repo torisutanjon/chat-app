@@ -31,12 +31,12 @@ const ChatComponent = ({ params }: ParamTypes) => {
   const [roomInfo, setRoomInfo] = useState<RoomInfoTypes>();
 
   socket.on("response-message", (message, sender_id, roomid, sendername) => {
-    if (room_id === roomid) {
-      setChats((chats) => [...chats, { sender_id, sendername, message }]);
-    }
+    console.log(roomid, message, sender_id, sendername);
+    setChats((chats) => [...chats, { sender_id, sendername, message }]);
   });
 
   socket.on("leaved-room", (status: Boolean) => {
+    console.log(status);
     if (status === false)
       return window.alert(
         "Error on leaving room please close the app and open again."
@@ -78,7 +78,9 @@ const ChatComponent = ({ params }: ParamTypes) => {
   };
 
   const leaveRoomHandler = () => {
-    socket.emit("leave-room", room_id);
+    const token = localStorage.getItem("userToken");
+    const decodedToken: any = jwt(token!);
+    socket.emit("leave-room", room_id, decodedToken.user_id);
   };
 
   const getRoomInfoHandler = async () => {
@@ -95,7 +97,9 @@ const ChatComponent = ({ params }: ParamTypes) => {
 
   const connectHandler = async () => {
     try {
-      socket.emit("join-room", room_id);
+      const token = localStorage.getItem("userToken");
+      const decodedToken: any = jwt(token!);
+      socket.emit("join-room", room_id, decodedToken.user_id);
     } catch (error) {
       console.log(error);
     }
@@ -117,8 +121,7 @@ const ChatComponent = ({ params }: ParamTypes) => {
       />
       <div className="relative h-[75%] w-full flex flex-col items-center justify-center">
         <div
-          className={`absolute top-0 h-[80%] w-[90%] border-[1px] border-black/25 overflow-y-auto`}
-          id="chat-container"
+          className={`absolute top-0 h-[80%] w-[90%] border-[1px] border-black/25 overflow-y-auto md:h-[70%] md:w-[60%]`}
         >
           {chats.map((chat: MessageTypes, key) => {
             return (
@@ -131,13 +134,13 @@ const ChatComponent = ({ params }: ParamTypes) => {
             );
           })}
         </div>
-        <div className="absolute bottom-0 h-[15%] w-[90%] flex flex-col items-center justify-center">
+        <div className="absolute bottom-0 h-[15%] w-[90%] flex flex-col items-center justify-center md:h-[25%] md:w-[60%]">
           <input
             className="relative h-[40px] w-[90%] border-b-[1px] border-b-black/50 text-black/50 text-[12px] pl-[15px] outline-none"
             placeholder="Write a message"
             id="message_input"
           />
-          <div className="relative self-end mr-[5%] h-[35px] w-[65%] flex flex-row items-center justify-between">
+          <div className="relative self-end mr-[5%] h-[35px] w-[65%] flex flex-row items-center justify-between md:h-[50px] md:w-[25%]">
             <button
               className="h-[65%] w-[45%] rounded-[15px] border-[1px] text-[10px] text-black/50 border-black/50 outline-none"
               onClick={() => clearHandler()}

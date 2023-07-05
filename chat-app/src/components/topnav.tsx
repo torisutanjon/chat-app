@@ -190,7 +190,7 @@ const TopNav = ({
         ) : (
           <div className="relative h-[85%] w-[60%] flex flex-col items-center justify-between">
             <p className="text-[12px] text-black/75">Room Info</p>
-            <div className="relative h-[35%] w-[95%] border-[1px] border-black/25 gridLayout">
+            <div className="relative h-[35%] w-[95%] border-[1px] border-black/25 gridLayout md:w-[25%]">
               <div className="relative h-full w-full flex items-center justify-end">
                 <p className="text-[12px] text-black/75 mr-[5px]">Room Name:</p>
               </div>
@@ -244,8 +244,8 @@ const TopNav = ({
                     {/* container # two */}
                     <div className="relative h-full w-full flex items-center justify-center">
                       {/* clickable div */}
-                      <div className="relative h-[60%] w-[90%] rounded-[25px] bg-[#3A1078]/75 flex items-center justify-center cursor-pointer">
-                        <p className="text-white/75 text-[14px]">
+                      <div className="relative h-[60%] w-[90%] rounded-[25px] bg-[#3A1078]/75 flex items-center justify-center cursor-pointer md:rounded-none md:h-[85%]">
+                        <p className="text-white/75 text-[14px]  md:text-[12px]">
                           {data.room_name}
                         </p>
                       </div>
