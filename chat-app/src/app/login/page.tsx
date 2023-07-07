@@ -1,9 +1,11 @@
 "use client";
-import { useState } from "react";
+
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import loading_gif from "../assets/loading.gif";
 import { accountAPI } from "../api";
+import { useMediaQuery } from "react-responsive";
 
 interface UserInfoTypes {
   username: string;
@@ -11,11 +13,11 @@ interface UserInfoTypes {
 }
 
 const LoginPage = () => {
-  const [userInfo, setUserInfo] = useState<UserInfoTypes>({
-    username: "",
-    password: "",
-  });
+  const [responsiveComponent, setResponsiveComponent] = useState(<></>);
   const [component, setComponent] = useState(<></>);
+  const isMobile = useMediaQuery({
+    query: "(max-width: 480px )",
+  });
 
   const loadingComponent = () => {
     return (
@@ -28,80 +30,114 @@ const LoginPage = () => {
     );
   };
 
-  const inputOnchangeHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = event.target;
-    setUserInfo((prevState) => ({
-      ...prevState,
-      [name]: value,
-    }));
-  };
-
   const loginHandler = async () => {
-    if (userInfo.username === "" || userInfo.password === "")
+    const username = document.getElementById(
+      "username-input"
+    ) as HTMLInputElement;
+    const password = document.getElementById(
+      "password-input"
+    ) as HTMLInputElement;
+
+    if (username.value === "" || password.value === "")
       return window.alert("Please fill all fields");
 
     try {
       setComponent(() => loadingComponent());
-      await accountAPI.loginAccount(userInfo.username, userInfo.password);
+      await accountAPI.loginAccount(username.value, password.value);
     } catch (error) {
       console.log(error);
     }
   };
 
   const clearHandler = () => {
-    setUserInfo({
-      username: "",
-      password: "",
-    });
+    const username = document.getElementById(
+      "username-input"
+    ) as HTMLInputElement;
+    const password = document.getElementById(
+      "password-input"
+    ) as HTMLInputElement;
+    username.value = "";
+    password.value = "";
   };
 
-  return (
-    <div className="absolute top-0 left-0 h-screen w-screen flex items-center justify-center">
-      <div className="relative h-[70%] w-[80%] flex flex-col items-center justify-between">
-        <p className="text-[#313131]/25 text-[24px] font-bold">Login Account</p>
-        <div className="relative h-[20%] w-full flex flex-col items-center justify-between">
-          <p className="text-[16px] text-[#313131]/75 p-0 m-0 md:text-[14px]">
+  useEffect(() => {
+    if (isMobile)
+      return setResponsiveComponent(
+        <>
+          <p className="text-[16px] text-black/50 p-0 m-0 md:text-[14px]">
             Email or Username:
           </p>
           <input
             type="text"
-            className="h-[35px] w-full border-b-[1px] border-b-black/75 text-center outline-none md:w-[350px] md:text-black/50 md:text-[14px]"
+            className="h-[35px] w-[75%] border-b-[1px] border-b-black/25 text-center outline-none md:w-[350px] md:text-black/50 md:text-[14px]"
             name="username"
-            onChange={inputOnchangeHandler}
-            value={userInfo.username}
+            id="username-input"
           />
-          <p className="text-[16px] text-[#313131]/75 md:text-[14px]">
+          <p className="text-[16px] text-black/50 md:text-[14px]">Password:</p>
+          <input
+            type="password"
+            className="h-[35px] w-[75%] border-b-[1px] border-b-black/25 text-center outline-none md:w-[350px] md:text-black/50 md:text-[14px]"
+            name="password"
+            id="password-input"
+          />
+        </>
+      );
+    return setResponsiveComponent(
+      <>
+        <div className="h-1/2 w-[30%] flex flex-row items-center justify-end">
+          <p className="text-[16px] text-black/50 p-0 m-0 md:text-[14px] md:mr-[5px]">
+            Email or Username:
+          </p>
+          <input
+            type="text"
+            className="h-[35px] w-[75%] border-b-[1px] border-b-black/25 text-center outline-none md:w-[200px] md:text-black/50 md:text-[14px] md:ml-[5px] md:text-start md:pl-[10px]"
+            name="username"
+            id="username-input"
+          />
+        </div>
+        <div className="h-1/2 w-[30%] flex flex-row items-center justify-end">
+          <p className="text-[16px] text-black/50 md:text-[14px] md:mr-[5px]">
             Password:
           </p>
           <input
             type="password"
-            className="h-[35px] w-full border-b-[1px] border-b-black/75 text-center outline-none md:w-[350px] md:text-black/50 md:text-[14px]"
+            className="h-[35px] w-[75%] border-b-[1px] border-b-black/25 text-center outline-none md:w-[200px] md:text-black/50 md:text-[14px] md:ml-[5px] md:text-start md:pl-[10px]"
             name="password"
-            onChange={inputOnchangeHandler}
-            value={userInfo.password}
+            id="password-input"
           />
+        </div>
+      </>
+    );
+  }, []);
+
+  return (
+    <div className="absolute top-0 left-0 h-screen w-screen flex items-center justify-center">
+      <div className="relative h-[70%] w-[80%] flex flex-col items-center justify-between">
+        <p className="text-[#7AC74F]/75 text-[24px] font-bold">Login Account</p>
+        <div className="relative h-[20%] w-full flex flex-col items-center justify-between">
+          {responsiveComponent}
         </div>
         <Link href="/signup" className="text-[12px] text-black/50 underline">
           Create Account
         </Link>
-        <div className="h-[20%] w-full flex flex-col items-center justify-end md:h-[30%]">
+        <div className="h-[20%] w-full flex flex-row items-center justify-evenly md:h-[30%] md:w-[50%]">
           <button
-            className="h-[30px] w-[125px] border-[1px] border-black/75 rounded-[50px] text-[12px] mb-[15px] md:h-[35px] md:w-[175px] md:rounded-none md:border-none md:bg-black/75 md:text-white/50"
+            className=" text-[12px] font-bold text-black/50 mb-[15px] md:h-[35px] md:w-[150px] md:border-none md:bg-[#A1CF6B] md:rounded-[25px] md:text-white/75"
+            onClick={() => (window.location.href = "/")}
+          >
+            Home
+          </button>
+          <button
+            className=" text-[12px] mb-[15px] font-bold text-black/50 md:h-[35px] md:w-[150px] md:border-none md:bg-[#A1CF6B] md:rounded-[25px] md:text-white/75"
             onClick={() => loginHandler()}
           >
             Login
           </button>
           <button
-            className="h-[30px] w-[125px] border-[1px] border-black/75 rounded-[50px] text-[12px] mb-[15px] md:h-[35px] md:w-[175px] md:rounded-none md:border-none md:bg-black/75 md:text-white/50"
+            className=" text-[12px] font-bold text-[#E87461] mb-[15px] md:h-[35px] md:w-[150px] md:border-none md:bg-[#E87461] md:rounded-[25px] md:text-white/75"
             onClick={() => clearHandler()}
           >
             Clear
-          </button>
-          <button
-            className="h-[30px] w-[125px] border-[1px] border-black/75 rounded-[50px] text-[12px] md:h-[35px] md:w-[175px] md:rounded-none md:border-none md:bg-black/75 md:text-white/50"
-            onClick={() => (window.location.href = "/")}
-          >
-            Home
           </button>
         </div>
       </div>

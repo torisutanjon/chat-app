@@ -8,6 +8,7 @@ import loading_gif from "../app/assets/loading.gif";
 import cross_icon from "../app/assets/cross.png";
 import { roomAPI } from "@/app/api";
 import { useRouter } from "next/navigation";
+import { useMediaQuery } from "react-responsive";
 
 interface PropTypes {
   isLogined?: boolean;
@@ -49,6 +50,9 @@ const TopNav = ({
   const [room, setRoom] = useState<Array<RoomTypes>>();
   const [login, setLogin] = useState<boolean>();
   const [component, setComponent] = useState(<></>);
+  const isMobile = useMediaQuery({
+    query: "(max-width: 480px)",
+  });
 
   const loadingComponent = () => {
     return (
@@ -79,7 +83,7 @@ const TopNav = ({
             className="h-[35px] w-[75%] outline-none text-center border-b-[1px] border-b-black/50 text-[14px]"
           />
           <button
-            className="h-[35px] w-[125px] border-[1px] border-black/50 rounded-[15px] text-[12px] text-white/50 bg-[#3A1078]/75"
+            className=" text-[16px] text-[#7AC74F]/75 font-bold"
             onClick={() => {
               const password = document.getElementById(
                 "password_input"
@@ -165,31 +169,44 @@ const TopNav = ({
   }, []);
 
   return (
-    <div className="relative h-[20%] w-full flex flex-col items-center justify-center">
-      <div className="relative h-1/2 w-full flex flex-row items-center justify-center">
+    <div className="relative h-[20%] w-full flex flex-col items-center justify-center md:bg-[#E0C879]">
+      <div className="relative h-2/3 w-full flex flex-row items-center justify-center">
         {isLogined === undefined ? (
           <></>
         ) : isLogined === false ? (
           <></>
         ) : (
-          <button
-            className="absolute h-[34px] w-[34px] left-[5%] flex items-center justify-center outline-none"
-            onClick={() =>
-              showAddComponent(<AddRoom hideAddComponent={hideComponent} />)
-            }
-          >
-            <Image
-              src={plus_icon}
-              alt=""
-              className="relative h-full w-full outline-none"
-            />
-          </button>
+          <>
+            {isMobile ? (
+              <button
+                className="absolute h-[26px] w-[26px] left-[5%] flex items-center justify-center outline-none"
+                onClick={() =>
+                  showAddComponent(<AddRoom hideAddComponent={hideComponent} />)
+                }
+              >
+                <Image
+                  src={plus_icon}
+                  alt=""
+                  className="relative h-full w-full outline-none"
+                />
+              </button>
+            ) : (
+              <p
+                className="absolute left-[5%] font-bold text-black/50 cursor-pointer"
+                onClick={() =>
+                  showAddComponent(<AddRoom hideAddComponent={hideComponent} />)
+                }
+              >
+                Create Room
+              </p>
+            )}
+          </>
         )}
         {roomInfo === undefined ? (
           <></>
         ) : (
           <div className="relative h-[85%] w-[60%] flex flex-col items-center justify-between">
-            <p className="text-[12px] text-black/75">Room Info</p>
+            <p className="text-[12px] text-black/25 font-bold">Room Info</p>
             <div className="relative h-[35%] w-[95%] border-[1px] border-black/25 gridLayout md:w-[25%]">
               <div className="relative h-full w-full flex items-center justify-end">
                 <p className="text-[12px] text-black/75 mr-[5px]">Room Name:</p>
@@ -199,7 +216,7 @@ const TopNav = ({
               </div>
             </div>
             <button
-              className="h-[22px] w-[100px] rounded-[8px] bg-[#3A1078]/75 text-white/50 text-[12px] mt-[1px]"
+              className="h-[22px] text-[#EC4067]/75 text-[12px] mt-[1px] font-bold"
               onClick={() => leaveRoomHandler!()}
             >
               Leave Room
@@ -216,17 +233,28 @@ const TopNav = ({
             Login
           </Link>
         ) : (
-          <Link href="/profile" className="absolute right-[5%]">
-            <button className="relative h-[48px] w-[48px] rounded-[50%] bg-[#3A1078]/75 text-[20px] text-white">
-              {user?.username.charAt(0).toUpperCase()}
-            </button>
-          </Link>
+          <>
+            {isMobile ? (
+              <Link href="/profile" className="absolute right-[5%]">
+                <button className="relative text-[32px] text-[#7AC74F]">
+                  {user?.username.charAt(0).toUpperCase()}
+                </button>
+              </Link>
+            ) : (
+              <Link
+                href="/profile"
+                className="absolute right-[5%] cursor-pointer"
+              >
+                {user?.username}
+              </Link>
+            )}
+          </>
         )}
       </div>
-      <div className="relative h-1/2 w-full bg-white border-y-[2px] border-y-[#3A1078]/75 flex flex-row items-center justify-between">
+      <div className="relative h-1/3 w-full bg-white flex flex-row items-center justify-between">
         {room === undefined || room.length === 0 ? (
           <div className="relative h-full w-full flex items-center justify-center">
-            <p className="text-[#3A1078]/75">no rooms found</p>
+            <p className="text-[#7AC74F]/75">no rooms found</p>
           </div>
         ) : (
           <>
@@ -235,7 +263,7 @@ const TopNav = ({
                 return (
                   // container # one
                   <div
-                    className="relative h-full w-[150px] inline-block bg-none overflow-hidden"
+                    className="relative h-full w-[125px] inline-block bg-none overflow-hidden"
                     key={key}
                     onClick={() =>
                       credentialHandler(data.room_name, data.room_type)
@@ -244,8 +272,8 @@ const TopNav = ({
                     {/* container # two */}
                     <div className="relative h-full w-full flex items-center justify-center">
                       {/* clickable div */}
-                      <div className="relative h-[60%] w-[90%] rounded-[25px] bg-[#3A1078]/75 flex items-center justify-center cursor-pointer md:rounded-none md:h-[85%]">
-                        <p className="text-white/75 text-[14px]  md:text-[12px]">
+                      <div className="relative h-[60%] w-[90%] flex items-center justify-center cursor-pointer md:rounded-none md:h-[85%]">
+                        <p className="text-[#7AC74F]/75 text-[14px]  md:text-[12px]">
                           {data.room_name}
                         </p>
                       </div>

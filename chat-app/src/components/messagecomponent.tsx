@@ -26,11 +26,11 @@ const MessageComponent = ({ sender_id, sendername, message }: PropTypes) => {
         <p
           className={`${
             isUser === false ? "self-start" : "self-end"
-          } font-bold text-[14px] text-black/50`}
+          } font-bold text-[16px] text-black/75`}
         >
           {sendername}
         </p>
-        <div className="max-w-[150px] bg-[#3A1078]/75 rounded-[5px] text-white/50 text-[14px] p-[15px] md:max-w-[450px]">
+        <div className="max-w-[150px] text-[#E0C879] text-[14px] p-[15px] md:max-w-[450px]">
           {message}
         </div>
       </div>

@@ -62,78 +62,80 @@ const AddRoom = ({ hideAddComponent }: PropTypes) => {
   };
 
   return (
-    <div className="absolute h-[400px] w-[300px] bg-white z-[1] border-[2px] border-[#3A1078]/75 flex flex-col items-center justify-center">
-      <button
-        className="absolute top-[5px] right-[5px] h-[25px] w-[50px] text-[14px]"
-        onClick={() => hideAddComponent(<></>)}
-      >
-        Close
-      </button>
-      <p className="absolute top-[25px] text-[#3A1078]/50 text-[20px] font-bold">
-        Add Room
-      </p>
-      <input
-        type="text"
-        className="absolute top-[100px] h-[35px] w-[200px] border-b-[1px] border-b-black/50 outline-none text-center"
-        placeholder="Room Name"
-        name="room_name"
-        onChange={onChangeHandler}
-      />
-      <div
-        className="absolute top-[175px] h-[35px] w-[150px] bg-[#3A1078]/50 flex items-center justify-center text-white text-[12px] cursor-pointer "
-        onClick={() =>
-          setIsOpen((type) => {
-            return !type;
-          })
-        }
-      >
-        {roomType}
-      </div>
-      <div
-        className={`absolute top-[210px] ${
-          isOpen === true ? "h-[70px]" : "h-[0px]"
-        }  w-[150px] bg-white border-[1px] border-[#3A1078]/50 z-[1]`}
-        onClick={() =>
-          setIsOpen((type) => {
-            return !type;
-          })
-        }
-      >
-        <div
-          className={`relative ${
-            isOpen === false && "hidden"
-          } h-[35px] w-[150px] border-b-[1px] border-b-[#3A1078]/25 flex items-center justify-center text-[12px] text-black/75`}
-          onClick={() => setRoomType("Public")}
+    <div className="absolute top-0 left-0 h-screen w-screen flex items-center justify-center bg-white/50">
+      <div className="relative h-[400px] w-[300px] bg-white z-[1] border-[2px] border-[#7AC74F]/75 flex flex-col items-center justify-center">
+        <button
+          className="absolute top-[5px] right-[5px] h-[25px] w-[50px] text-[14px]"
+          onClick={() => hideAddComponent(<></>)}
         >
-          Public
-        </div>
-        <div
-          className={`relative ${
-            isOpen === false && "hidden"
-          } h-[35px] w-[150px] border-b-[1px] border-b-[#3A1078]/25 flex items-center justify-center text-[12px] text-black/75`}
-          onClick={() => setRoomType("Private")}
-        >
-          Private
-        </div>
-      </div>
-
-      {roomType === "Private" && (
+          Close
+        </button>
+        <p className="absolute top-[25px] text-[#7AC74F]/50 text-[20px] font-bold">
+          Add Room
+        </p>
         <input
-          type="password"
-          className="absolute top-[250px] h-[35px] w-[200px] border-b-[1px] border-black/50 text-center outline-none"
-          placeholder="Room Password"
-          name="room_password"
+          type="text"
+          className="absolute top-[100px] h-[35px] w-[200px] border-b-[1px] border-b-black/50 outline-none text-center"
+          placeholder="Room Name"
+          name="room_name"
           onChange={onChangeHandler}
         />
-      )}
+        <div
+          className="absolute top-[175px] h-[35px] w-[150px] bg-[#7AC74F]/50 flex items-center justify-center text-black/50 font-bold text-[14px] cursor-pointer "
+          onClick={() =>
+            setIsOpen((type) => {
+              return !type;
+            })
+          }
+        >
+          {roomType}
+        </div>
+        <div
+          className={`absolute top-[210px] ${
+            isOpen === true ? "h-[70px]" : "h-[0px]"
+          }  w-[150px] bg-white border-[1px] border-[#7AC74F]/50 z-[1]`}
+          onClick={() =>
+            setIsOpen((type) => {
+              return !type;
+            })
+          }
+        >
+          <div
+            className={`relative ${
+              isOpen === false && "hidden"
+            } h-[35px] w-[150px] border-b-[1px] border-b-[#7AC74F]/25 flex items-center justify-center text-[12px] text-black/75`}
+            onClick={() => setRoomType("Public")}
+          >
+            Public
+          </div>
+          <div
+            className={`relative ${
+              isOpen === false && "hidden"
+            } h-[35px] w-[150px] border-b-[1px] border-b-[#7AC74F]/25 flex items-center justify-center text-[12px] text-black/75`}
+            onClick={() => setRoomType("Private")}
+          >
+            Private
+          </div>
+        </div>
 
-      <button
-        className="absolute bottom-[50px] h-[25px] w-[100px] text-white text-[12px] bg-[#3A1078]/50 rounded-[50px]"
-        onClick={() => createRoomHandler()}
-      >
-        Create
-      </button>
-      {component}
+        {roomType === "Private" && (
+          <input
+            type="password"
+            className="absolute top-[250px] h-[35px] w-[200px] border-b-[1px] border-black/50 text-center outline-none"
+            placeholder="Room Password"
+            name="room_password"
+            onChange={onChangeHandler}
+          />
+        )}
+
+        <button
+          className="absolute bottom-[50px] text-[#7AC74F]/75 text-[16px] font-bold"
+          onClick={() => createRoomHandler()}
+        >
+          Create
+        </button>
+        {component}
+      </div>
     </div>
   );
 };

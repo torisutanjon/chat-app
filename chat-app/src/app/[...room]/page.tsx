@@ -121,7 +121,7 @@ const ChatComponent = ({ params }: ParamTypes) => {
       />
       <div className="relative h-[75%] w-full flex flex-col items-center justify-center">
         <div
-          className={`absolute top-0 h-[80%] w-[90%] border-[1px] border-black/25 overflow-y-auto md:h-[70%] md:w-[60%]`}
+          className={`absolute top-0 h-[80%] w-[90%] border-[1px] border-[#E0C879] overflow-y-auto md:h-[70%] md:w-[60%]`}
         >
           {chats.map((chat: MessageTypes, key) => {
             return (
@@ -136,19 +136,19 @@ const ChatComponent = ({ params }: ParamTypes) => {
         </div>
         <div className="absolute bottom-0 h-[15%] w-[90%] flex flex-col items-center justify-center md:h-[25%] md:w-[60%]">
           <input
-            className="relative h-[40px] w-[90%] border-b-[1px] border-b-black/50 text-black/50 text-[12px] pl-[15px] outline-none"
+            className="relative h-[40px] w-[90%] border-b-[1px] border-b-[#E0C879] text-black/50 text-[12px] pl-[15px] outline-none"
             placeholder="Write a message"
             id="message_input"
           />
-          <div className="relative self-end mr-[5%] h-[35px] w-[65%] flex flex-row items-center justify-between md:h-[50px] md:w-[25%]">
+          <div className="relative self-end mr-[5%] h-[35px] w-[30%] flex flex-row items-center justify-between md:h-[50px] md:w-[25%]">
             <button
-              className="h-[65%] w-[45%] rounded-[15px] border-[1px] text-[10px] text-black/50 border-black/50 outline-none"
+              className="text-[12px] text-[#EC4067] font-bold border-black/50 outline-none "
               onClick={() => clearHandler()}
             >
               Clear
             </button>
             <button
-              className="h-[65%] w-[45%] rounded-[15px] border-[1px] text-[10px] text-black/50 border-black/50 outline-none"
+              className="text-[12px] text-black/50 font-bold border-black/50 outline-none"
               onClick={() => sendMessageHandler()}
             >
               Send
