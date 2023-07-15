@@ -64,22 +64,26 @@ const LoginPage = () => {
     if (isMobile)
       return setResponsiveComponent(
         <>
-          <p className="text-[16px] text-black/50 p-0 m-0 md:text-[14px]">
+          <p className="text-[14px] text-black/50 p-0 m-0">
             Email or Username:
           </p>
-          <input
-            type="text"
-            className="h-[35px] w-[75%] border-b-[1px] border-b-black/25 text-center outline-none md:w-[350px] md:text-black/50 md:text-[14px]"
-            name="username"
-            id="username-input"
-          />
-          <p className="text-[16px] text-black/50 md:text-[14px]">Password:</p>
-          <input
-            type="password"
-            className="h-[35px] w-[75%] border-b-[1px] border-b-black/25 text-center outline-none md:w-[350px] md:text-black/50 md:text-[14px]"
-            name="password"
-            id="password-input"
-          />
+          <div className="h-[40px] w-[75%] boxShadow2 rounded-[50px] flex items-center justify-center mb-[15px]">
+            <input
+              type="text"
+              className="h-[80%] w-[85%] border-b-[2px] border-b-black/25 text-[12px] text-center outline-none md:w-[350px] text-black/50"
+              name="username"
+              id="username-input"
+            />
+          </div>
+          <p className="text-[14px] text-black/50">Password:</p>
+          <div className="h-[40px] w-[75%] boxShadow2 rounded-[50px] flex items-center justify-center mb-[15px]">
+            <input
+              type="password"
+              className="h-[80%] w-[85%] border-b-[2px] border-b-black/25 text-[12px] text-center outline-none md:w-[350px] text-black/50"
+              name="password"
+              id="password-input"
+            />
+          </div>
         </>
       );
     return setResponsiveComponent(
@@ -114,27 +118,27 @@ const LoginPage = () => {
     <div className="absolute top-0 left-0 h-screen w-screen flex items-center justify-center">
       <div className="relative h-[70%] w-[80%] flex flex-col items-center justify-between">
         <p className="text-[#7AC74F]/75 text-[24px] font-bold">Login Account</p>
-        <div className="relative h-[20%] w-full flex flex-col items-center justify-between">
+        <div className="relative h-[30%] w-full flex flex-col items-center justify-between">
           {responsiveComponent}
         </div>
         <Link href="/signup" className="text-[12px] text-black/50 underline">
           Create Account
         </Link>
-        <div className="h-[20%] w-full flex flex-row items-center justify-evenly md:h-[30%] md:w-[50%]">
+        <div className="h-[20%] w-full flex flex-row items-center justify-between md:h-[30%] md:w-[50%]">
           <button
-            className=" text-[12px] font-bold text-black/50 mb-[15px] md:h-[35px] md:w-[150px] md:border-none md:bg-[#A1CF6B] md:rounded-[25px] md:text-white/75"
+            className="h-[30px] w-[75px] boxShadow2 text-[12px] bg-white rounded-[25px] text-black/75 md:h-[35px] md:w-[150px] md:border-none md:bg-[#A1CF6B] md:rounded-[25px] md:text-white/75"
             onClick={() => (window.location.href = "/")}
           >
             Home
           </button>
           <button
-            className=" text-[12px] mb-[15px] font-bold text-black/50 md:h-[35px] md:w-[150px] md:border-none md:bg-[#A1CF6B] md:rounded-[25px] md:text-white/75"
+            className="h-[30px] w-[75px] boxShadow2 text-[12px] bg-[#7AC74F] rounded-[25px] text-black/75 md:h-[35px] md:w-[150px] md:border-none md:bg-[#A1CF6B] md:rounded-[25px] md:text-white/75"
             onClick={() => loginHandler()}
           >
             Login
           </button>
           <button
-            className=" text-[12px] font-bold text-[#E87461] mb-[15px] md:h-[35px] md:w-[150px] md:border-none md:bg-[#E87461] md:rounded-[25px] md:text-white/75"
+            className="h-[30px] w-[75px] boxShadow2 text-[12px] bg-[#1E1E1E]/75 rounded-[25px] text-white/75 md:h-[35px] md:w-[150px] md:border-none md:bg-[#A1CF6B] md:rounded-[25px] md:text-white/75"
             onClick={() => clearHandler()}
           >
             Clear

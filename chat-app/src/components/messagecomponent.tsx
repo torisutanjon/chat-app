@@ -23,14 +23,18 @@ const MessageComponent = ({ sender_id, sendername, message }: PropTypes) => {
           isUser === false ? "self-start" : "self-end"
         }`}
       >
-        <p
-          className={`${
-            isUser === false ? "self-start" : "self-end"
-          } font-bold text-[16px] text-black/75`}
+        {isUser === false ? (
+          <p className="text-[12px] text-black/75 self-start text-white/50">
+            {sendername}
+          </p>
+        ) : (
+          <></>
+        )}
+        <div
+          className={`max-w-[150px] text-white text-[12px] p-[15px] md:max-w-[450px] text-normal rounded-[8px] ${
+            isUser === false ? "bg-[#3E3E3E]" : "bg-[#7AC74F]"
+          }`}
         >
-          {sendername}
-        </p>
-        <div className="max-w-[150px] text-[#E0C879] text-[14px] p-[15px] md:max-w-[450px]">
           {message}
         </div>
       </div>

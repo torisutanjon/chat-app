@@ -3,7 +3,8 @@
 @tailwind utilities;
 
 ::-webkit-scrollbar {
-  width: 10px;
+  height: 2px;
+  width: 2px;
 }
 
 ::-webkit-scrollbar-track {
@@ -21,4 +22,8 @@
 
 .boxShadow1 {
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+.boxShadow2 {
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }

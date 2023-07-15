@@ -93,40 +93,40 @@ const SignUpPage = () => {
   useEffect(() => {
     if (isMobile)
       return setResponsiveCOmponent(
-        <>
-          <p className="text-[16px] text-[#313131]/75 p-0 m-0  md:text-[14px]">
+        <div className="relative h-full w-full flex flex-col items-center justify-center boxShadow2 rounded-[14px]">
+          <p className="text-[#313131]/75 p-0 m-0 text-[14px] my-[5px]">
             Email:
           </p>
           <input
             type="text"
             id="email-input"
-            className="h-[35px] w-[75%] border-b-[1px] border-b-black/25 text-center outline-none md:w-[350px] md:text-black/50 md:text-[14px]"
+            className="h-[30px] w-[75%] text-[14px] text-black/50 border-b-[2px] border-b-black/25 text-center outline-none md:w-[350px]"
           />
-          <p className="text-[16px] text-[#313131]/75 p-0 m-0  md:text-[14px]">
+          <p className="text-[#313131]/75 p-0 m-0 text-[14px] my-[5px]">
             Username:
           </p>
           <input
             type="text"
             id="username-input"
-            className="h-[35px] w-[75%] border-b-[1px] border-b-black/25 text-center outline-none md:w-[350px] md:text-black/50 md:text-[14px]"
+            className="h-[30px] w-[75%] text-[14px] text-black/50 border-b-[2px] border-b-black/25 text-center outline-none md:w-[350px]"
           />
-          <p className="text-[16px] text-[#313131]/75 p-0 m-0  md:text-[14px]">
+          <p className="text-[#313131]/75 p-0 m-0 text-[14px] my-[5px]">
             Password:
           </p>
           <input
             type="password"
             id="password-input"
-            className="h-[35px] w-[75%] border-b-[1px] border-b-black/25 text-center outline-none md:w-[350px] md:text-black/50 md:text-[14px]"
+            className="h-[30px] w-[75%] text-[14px] text-black/50 border-b-[2px] border-b-black/25 text-center outline-none md:w-[350px]"
           />
-          <p className="text-[16px] text-[#313131]/75 p-0 m-0  md:text-[14px]">
+          <p className="text-[#313131]/75 p-0 m-0 text-[14px] my-[5px]">
             Confirm Password:
           </p>
           <input
             type="password"
             id="cpassword-input"
-            className="h-[35px] w-[75%] border-b-[1px] border-b-black/25 text-center outline-none md:w-[350px] md:text-black/50 md:text-[14px]"
+            className="h-[30px] w-[75%] text-[14px] text-black/50 border-b-[2px] border-b-black/25 text-center outline-none md:w-[350px]"
           />
-        </>
+        </div>
       );
     return setResponsiveCOmponent(
       <>
@@ -186,21 +186,21 @@ const SignUpPage = () => {
         <Link href="/login" className="text-[12px] text-black/50 underline">
           Already have an account?
         </Link>
-        <div className="h-[20%] w-full flex flex-row items-center justify-evenly md:h-[25%] md:w-[50%]">
+        <div className="h-[20%] w-full flex flex-row items-center justify-between md:h-[25%] md:w-[50%]">
           <button
-            className=" text-[12px] font-bold text-black/50 mb-[15px] md:h-[35px] md:w-[150px] md:border-none md:bg-[#A1CF6B] md:rounded-[25px] md:text-white/75"
+            className="h-[30px] w-[75px] boxShadow2 text-[12px] bg-white rounded-[25px] text-black/75 md:h-[35px] md:w-[150px] md:border-none md:bg-[#A1CF6B] md:rounded-[25px] md:text-white/75"
             onClick={() => (window.location.href = "/")}
           >
             Home
           </button>
           <button
-            className=" text-[12px] font-bold text-black/50 mb-[15px] md:h-[35px] md:w-[150px] md:border-none md:bg-[#A1CF6B] md:rounded-[25px] md:text-white/75"
+            className="h-[30px] w-[75px] boxShadow2 text-[12px] bg-[#7AC74F] rounded-[25px] text-black/75 md:h-[35px] md:w-[150px] md:border-none md:bg-[#A1CF6B] md:rounded-[25px] md:text-white/75"
             onClick={() => createAccountHandler()}
           >
-            Create Account
+            Sign Up
           </button>
           <button
-            className=" text-[12px] font-bold text-[#E87461] mb-[15px] md:h-[35px] md:w-[150px] md:border-none md:bg-[#E87461] md:rounded-[25px] md:text-white/75"
+            className="h-[30px] w-[75px] boxShadow2 text-[12px] bg-[#1E1E1E]/75 rounded-[25px] text-white/75 md:h-[35px] md:w-[150px] md:border-none md:bg-[#A1CF6B] md:rounded-[25px] md:text-white/75"
             onClick={() => clearHandler()}
           >
             Clear

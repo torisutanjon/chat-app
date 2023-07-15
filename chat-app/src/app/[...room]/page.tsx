@@ -75,6 +75,7 @@ const ChatComponent = ({ params }: ParamTypes) => {
       decodedToken.user_id,
       decodedToken.username
     );
+    clearHandler();
   };
 
   const leaveRoomHandler = () => {
@@ -121,7 +122,7 @@ const ChatComponent = ({ params }: ParamTypes) => {
       />
       <div className="relative h-[75%] w-full flex flex-col items-center justify-center">
         <div
-          className={`absolute top-0 h-[80%] w-[90%] border-[1px] border-[#E0C879] overflow-y-auto md:h-[70%] md:w-[60%]`}
+          className={`absolute top-0 h-[85%] w-[90%] border-[1px] rounded-[14px] bg-[#1e1e1e] border-[#1e1e1e]/50 overflow-y-auto md:h-[70%] md:w-[60%]`}
         >
           {chats.map((chat: MessageTypes, key) => {
             return (
@@ -136,19 +137,19 @@ const ChatComponent = ({ params }: ParamTypes) => {
         </div>
         <div className="absolute bottom-0 h-[15%] w-[90%] flex flex-col items-center justify-center md:h-[25%] md:w-[60%]">
           <input
-            className="relative h-[40px] w-[90%] border-b-[1px] border-b-[#E0C879] text-black/50 text-[12px] pl-[15px] outline-none"
+            className="relative h-[40px] w-[90%] border-b-[1px] border-b-[#1e1e1e]/50 text-black text-[12px] pl-[15px] outline-none"
             placeholder="Write a message"
             id="message_input"
           />
-          <div className="relative self-end mr-[5%] h-[35px] w-[30%] flex flex-row items-center justify-between md:h-[50px] md:w-[25%]">
+          <div className="relative self-end mr-[5%] h-[35px] w-full flex flex-row items-center justify-end md:h-[50px] md:w-[25%]">
             <button
-              className="text-[12px] text-[#EC4067] font-bold border-black/50 outline-none "
+              className="h-[20px] w-[65px] text-[10px] rounded-[4px] bg-[#1e1e1e]/75 text-white/75 outline-none mr-[15px]"
               onClick={() => clearHandler()}
             >
               Clear
             </button>
             <button
-              className="text-[12px] text-black/50 font-bold border-black/50 outline-none"
+              className="h-[20px] w-[65px] text-[10px] rounded-[4px] bg-[#7AC74F] text-white/75 outline-none "
               onClick={() => sendMessageHandler()}
             >
               Send

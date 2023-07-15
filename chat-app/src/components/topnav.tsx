@@ -205,18 +205,22 @@ const TopNav = ({
         {roomInfo === undefined ? (
           <></>
         ) : (
-          <div className="relative h-[85%] w-[60%] flex flex-col items-center justify-between">
-            <p className="text-[12px] text-black/25 font-bold">Room Info</p>
-            <div className="relative h-[35%] w-[95%] border-[1px] border-black/25 gridLayout md:w-[25%]">
-              <div className="relative h-full w-full flex items-center justify-end">
-                <p className="text-[12px] text-black/75 mr-[5px]">Room Name:</p>
-              </div>
-              <div className="relative h-full w-full flex items-center justify-start">
-                <p className="text-[12px] text-black/50">{roomInfo.name}</p>
+          <div className="relative h-[85%] w-[60%] flex flex-col items-center justify-evenly">
+            <div className="relative h-[50%] w-[75%] border-[1px] border-black/25 flex flex-col items-center justify-evenly">
+              <p className="text-[10px] text-black font-bold md:w-[25%]">
+                Room Info
+              </p>
+              <div className="relative h-[50%] w-full gridLayout">
+                <div className="relative h-full w-full flex items-center justify-end">
+                  <p className="text-[10px] text-black mr-[5px]">Room Name:</p>
+                </div>
+                <div className="relative h-full w-full flex items-center justify-start">
+                  <p className="text-[10px] text-black">{roomInfo.name}</p>
+                </div>
               </div>
             </div>
             <button
-              className="h-[22px] text-[#EC4067]/75 text-[12px] mt-[1px] font-bold"
+              className="h-[20px] w-[85px] rounded-[4px] border-[1px] border-[#1e1e1e]/25 text-[#1e1e1e]/75 text-[10px]"
               onClick={() => leaveRoomHandler!()}
             >
               Leave Room
@@ -228,7 +232,7 @@ const TopNav = ({
         ) : isLogined === false ? (
           <Link
             href="/login"
-            className="absolute right-[5%] text-[#3A1078]/75 font-bold text-[14px]"
+            className="absolute h-[30px] w-[75px] rounded-[50px] boxShadow2 bg-[#1e1e1e]/75 right-[5%] text-white/50 text-[12px] flex items-center justify-center"
           >
             Login
           </Link>
@@ -236,7 +240,7 @@ const TopNav = ({
           <>
             {isMobile ? (
               <Link href="/profile" className="absolute right-[5%]">
-                <button className="relative text-[32px] text-[#7AC74F]">
+                <button className="relative h-[40px] w-[40px] rounded-[50px] boxShadow2 text-[24px] text-white/75 bg-[#1e1e1e]/75">
                   {user?.username.charAt(0).toUpperCase()}
                 </button>
               </Link>
@@ -258,7 +262,7 @@ const TopNav = ({
           </div>
         ) : (
           <>
-            <div className="relative h-[75%] w-full overflow-y-hidden overflow-x-auto whitespace-nowrap">
+            <div className="relative h-[85%] w-full overflow-y-hidden overflow-x-auto whitespace-nowrap">
               {room.map((data: RoomTypes, key) => {
                 return (
                   // container # one
@@ -272,8 +276,8 @@ const TopNav = ({
                     {/* container # two */}
                     <div className="relative h-full w-full flex items-center justify-center">
                       {/* clickable div */}
-                      <div className="relative h-[60%] w-[90%] flex items-center justify-center cursor-pointer md:rounded-none md:h-[85%]">
-                        <p className="text-[#7AC74F]/75 text-[14px]  md:text-[12px]">
+                      <div className="relative h-[75%] w-[85%] bg-[#7AC74F] rounded-[50px] flex items-center justify-center cursor-pointer md:rounded-none md:h-[85%]">
+                        <p className="text-white/75 text-[10px]  md:text-[12px]">
                           {data.room_name}
                         </p>
                       </div>
