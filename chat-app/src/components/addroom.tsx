@@ -63,7 +63,7 @@ const AddRoom = ({ hideAddComponent }: PropTypes) => {
 
   return (
     <div className="absolute top-0 left-0 h-screen w-screen flex items-center justify-center bg-white/50">
-      <div className="relative h-[350px] w-[250px] bg-white z-[1] border-[2px] border-[#7AC74F]/75 flex flex-col items-center justify-start">
+      <div className="relative h-[350px] w-[250px] bg-white z-[1] border-[2px] border-[#7AC74F]/75 flex flex-col items-center justify-start md:h-[450px] md:w-[300px]">
         <button
           className="absolute top-[5px] boxShadow2 right-[5px] h-[25px] w-[50px] text-[10px] text-white/75 bg-[#1e1e1e]/75 rounded-[50px]"
           onClick={() => hideAddComponent(<></>)}
@@ -84,7 +84,7 @@ const AddRoom = ({ hideAddComponent }: PropTypes) => {
           />
         </div>
         {roomType === "Private" && (
-          <div className="relative mt-[10px] h-[35px] w-[75%] boxShadow2 rounded-[50px] flex items-center justify-center">
+          <div className="relative mt-[10px] h-[35px] w-[75%] boxShadow2 rounded-[50px] flex items-center justify-center md:mt-[30px]">
             <input
               type="password"
               className="h-[85%] w-[80%] border-b-[2px] border-b-black/25 outline-none text-center text-[12px]"
@@ -96,7 +96,7 @@ const AddRoom = ({ hideAddComponent }: PropTypes) => {
         )}
 
         <div
-          className="absolute top-[175px] h-[30px] w-[125px] bg-[#1e1e1e]/75 flex items-center justify-center text-white/75 text-[12px] cursor-pointer "
+          className="absolute top-[175px] h-[30px] w-[125px] bg-[#1e1e1e]/75 flex items-center justify-center text-white/75 text-[12px] cursor-pointer md:top-[225px]"
           onClick={() =>
             setIsOpen((type) => {
               return !type;
@@ -106,7 +106,7 @@ const AddRoom = ({ hideAddComponent }: PropTypes) => {
           {roomType}
         </div>
         <div
-          className={`absolute top-[205px] ${
+          className={`absolute top-[205px] md:top-[255px] ${
             isOpen === true ? "h-[60px]" : "h-[0px]"
           }  w-[125px] bg-white border-[1px] border-[#1e1e1e]/25 z-[1]`}
           onClick={() =>

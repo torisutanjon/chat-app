@@ -22,7 +22,7 @@ const Profile = () => {
         <p className="text-[32px] font-bold text-black/50">
           Sending Verification
         </p>
-        <div className="relative h-[125px] w-[125px] bg-black/50 mt-[15px] flex items-center justify-center">
+        <div className="relative h-[125px] w-[125px] mt-[15px] flex items-center justify-center">
           <Image src={loading_gif} alt="" height={100} width={100} />
         </div>
       </div>

@@ -18,7 +18,7 @@ const SignUpPage = () => {
     return (
       <div className="absolute top-0 left-0 h-screen w-screen bg-white/50 flex flex-col items-center justify-center z-[2]">
         <p className="text-[32px] font-bold text-black/50">Create Account..</p>
-        <div className="relative h-[125px] w-[125px] bg-black/50 mt-[15px] flex items-center justify-center">
+        <div className="relative h-[125px] w-[125px] mt-[15px] flex items-center justify-center">
           <Image src={loading_gif} alt="" height={100} width={100} />
         </div>
       </div>
@@ -100,7 +100,7 @@ const SignUpPage = () => {
           <input
             type="text"
             id="email-input"
-            className="h-[30px] w-[75%] text-[14px] text-black/50 border-b-[2px] border-b-black/25 text-center outline-none md:w-[350px]"
+            className="h-[30px] w-[75%] text-[14px] text-black/50 border-b-[2px] border-b-black/25 text-center outline-none focus:border-b-[3px]"
           />
           <p className="text-[#313131]/75 p-0 m-0 text-[14px] my-[5px]">
             Username:
@@ -108,7 +108,7 @@ const SignUpPage = () => {
           <input
             type="text"
             id="username-input"
-            className="h-[30px] w-[75%] text-[14px] text-black/50 border-b-[2px] border-b-black/25 text-center outline-none md:w-[350px]"
+            className="h-[30px] w-[75%] text-[14px] text-black/50 border-b-[2px] border-b-black/25 text-center outline-none focus:border-b-[3px]"
           />
           <p className="text-[#313131]/75 p-0 m-0 text-[14px] my-[5px]">
             Password:
@@ -116,7 +116,7 @@ const SignUpPage = () => {
           <input
             type="password"
             id="password-input"
-            className="h-[30px] w-[75%] text-[14px] text-black/50 border-b-[2px] border-b-black/25 text-center outline-none md:w-[350px]"
+            className="h-[30px] w-[75%] text-[14px] text-black/50 border-b-[2px] border-b-black/25 text-center outline-none focus:border-b-[3px]"
           />
           <p className="text-[#313131]/75 p-0 m-0 text-[14px] my-[5px]">
             Confirm Password:
@@ -124,59 +124,59 @@ const SignUpPage = () => {
           <input
             type="password"
             id="cpassword-input"
-            className="h-[30px] w-[75%] text-[14px] text-black/50 border-b-[2px] border-b-black/25 text-center outline-none md:w-[350px]"
+            className="h-[30px] w-[75%] text-[14px] text-black/50 border-b-[2px] border-b-black/25 text-center outline-none focus:border-b-[3px]"
           />
         </div>
       );
     return setResponsiveCOmponent(
-      <>
-        <div className="h-[25%] w-[35%] flex flex-row items-center justify-end">
-          <p className="text-[16px] text-[#313131]/75 p-0 m-0  md:text-[14px] md:mr-[5px]">
+      <div className="relative h-full w-[45%] flex flex-col items-start justify-evenly boxShadow2 rounded-[14px]">
+        <div className="h-[25%] w-[80%] flex flex-row items-center justify-end">
+          <p className="text-[#313131]/75 p-0 m-0 text-[14px] mr-[5px]">
             Email:
           </p>
           <input
             type="text"
             id="email-input"
-            className="h-[35px] w-[75%] border-b-[1px] border-b-black/25 text-center outline-none md:w-[275px] md:text-black/50 md:text-[14px] md:ml-[5px] md:text-start md:pl-[10px]"
+            className="h-[35px] w-[275px] border-b-[1px] border-b-black/25 text-[13px] text-black/50 pl-[10px] outline-none focus:border-b-[2px]"
           />
         </div>
-        <div className="h-[25%] w-[35%] flex flex-row items-center justify-end">
-          <p className="text-[16px] text-[#313131]/75 p-0 m-0  md:text-[14px] md:mr-[5px]">
+        <div className="h-[25%] w-[80%] flex flex-row items-center justify-end">
+          <p className="text-[#313131]/75 p-0 m-0 text-[14px] mr-[5px]">
             Username:
           </p>
           <input
             type="text"
             id="username-input"
-            className="h-[35px] w-[75%] border-b-[1px] border-b-black/25 text-center outline-none md:w-[275px] md:text-black/50 md:text-[14px] md:ml-[5px] md:text-start md:pl-[10px]"
+            className="h-[35px] w-[275px] border-b-[1px] border-b-black/25 text-[13px] text-black/50 pl-[10px] outline-none focus:border-b-[2px]"
           />
         </div>
-        <div className="h-[25%] w-[35%] flex flex-row items-center justify-end">
-          <p className="text-[16px] text-[#313131]/75 p-0 m-0  md:text-[14px] md:mr-[5px]">
+        <div className="h-[25%] w-[80%] flex flex-row items-center justify-end">
+          <p className="text-[#313131]/75 p-0 m-0 text-[14px] mr-[5px]">
             Password:
           </p>
           <input
             type="password"
             id="password-input"
-            className="h-[35px] w-[75%] border-b-[1px] border-b-black/25 text-center outline-none md:w-[275px] md:text-black/50 md:text-[14px] md:ml-[5px] md:text-start md:pl-[10px]"
+            className="h-[35px] w-[275px] border-b-[1px] border-b-black/25 text-[13px] text-black/50 pl-[10px] outline-none focus:border-b-[2px]"
           />
         </div>
-        <div className="h-[25%] w-[35%] flex flex-row items-center justify-end">
-          <p className="text-[16px] text-[#313131]/75 p-0 m-0  md:text-[14px] md:mr-[5px]">
+        <div className="h-[25%] w-[80%] flex flex-row items-center justify-end">
+          <p className="text-[#313131]/75 p-0 m-0 text-[14px] mr-[5px]">
             Confirm Password:
           </p>
           <input
             type="password"
             id="cpassword-input"
-            className="h-[35px] w-[75%] border-b-[1px] border-b-black/25 text-center outline-none md:w-[275px] md:text-black/50 md:text-[14px] md:ml-[5px] md:text-start md:pl-[10px]"
+            className="h-[35px] w-[275px] border-b-[1px] border-b-black/25 text-[13px] text-black/50 pl-[10px] outline-none focus:border-b-[2px]"
           />
         </div>
-      </>
+      </div>
     );
   }, []);
 
   return (
     <div className="relative left-0 top-0 h-screen w-screen flex items-center justify-center">
-      <div className="relative h-[70%] w-[80%] flex flex-col items-center justify-between">
+      <div className="relative h-[80%] w-[80%] flex flex-col items-center justify-between">
         <p className="text-[24px] text-[#7AC74F]/75 font-bold  md:text-[14px]">
           Create Account
         </p>
@@ -186,21 +186,21 @@ const SignUpPage = () => {
         <Link href="/login" className="text-[12px] text-black/50 underline">
           Already have an account?
         </Link>
-        <div className="h-[20%] w-full flex flex-row items-center justify-between md:h-[25%] md:w-[50%]">
+        <div className="h-[20%] w-full flex flex-row items-center justify-between md:h-[25%] md:w-[35%]">
           <button
-            className="h-[30px] w-[75px] boxShadow2 text-[12px] bg-white rounded-[25px] text-black/75 md:h-[35px] md:w-[150px] md:border-none md:bg-[#A1CF6B] md:rounded-[25px] md:text-white/75"
+            className="h-[30px] w-[75px] boxShadow2 text-[12px] bg-white rounded-[25px] text-black/75 md:h-[35px] md:w-[150px]"
             onClick={() => (window.location.href = "/")}
           >
             Home
           </button>
           <button
-            className="h-[30px] w-[75px] boxShadow2 text-[12px] bg-[#7AC74F] rounded-[25px] text-black/75 md:h-[35px] md:w-[150px] md:border-none md:bg-[#A1CF6B] md:rounded-[25px] md:text-white/75"
+            className="h-[30px] w-[75px] boxShadow2 text-[12px] bg-[#7AC74F] rounded-[25px] text-black/75 md:h-[35px] md:w-[150px]"
             onClick={() => createAccountHandler()}
           >
             Sign Up
           </button>
           <button
-            className="h-[30px] w-[75px] boxShadow2 text-[12px] bg-[#1E1E1E]/75 rounded-[25px] text-white/75 md:h-[35px] md:w-[150px] md:border-none md:bg-[#A1CF6B] md:rounded-[25px] md:text-white/75"
+            className="h-[30px] w-[75px] boxShadow2 text-[12px] bg-[#1E1E1E]/75 rounded-[25px] text-white/75 md:h-[35px] md:w-[150px]"
             onClick={() => clearHandler()}
           >
             Clear

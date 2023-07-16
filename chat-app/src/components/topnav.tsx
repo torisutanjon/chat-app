@@ -169,8 +169,8 @@ const TopNav = ({
   }, []);
 
   return (
-    <div className="relative h-[20%] w-full flex flex-col items-center justify-center md:bg-[#E0C879]">
-      <div className="relative h-2/3 w-full flex flex-row items-center justify-center">
+    <div className="relative h-[20%] w-full flex flex-col items-center justify-center md:h-[15%] md:bg-[#303030]">
+      <div className="relative h-1/2 w-full flex flex-row items-center justify-center">
         {isLogined === undefined ? (
           <></>
         ) : isLogined === false ? (
@@ -192,7 +192,7 @@ const TopNav = ({
               </button>
             ) : (
               <p
-                className="absolute left-[5%] font-bold text-black/50 cursor-pointer"
+                className="absolute left-[5%] text-white/75 cursor-pointer text-[14px]"
                 onClick={() =>
                   showAddComponent(<AddRoom hideAddComponent={hideComponent} />)
                 }
@@ -205,22 +205,26 @@ const TopNav = ({
         {roomInfo === undefined ? (
           <></>
         ) : (
-          <div className="relative h-[85%] w-[60%] flex flex-col items-center justify-evenly">
+          <div className="relative h-[85%] w-[60%] flex flex-col items-center justify-evenly md:w-[20%]">
             <div className="relative h-[50%] w-[75%] border-[1px] border-black/25 flex flex-col items-center justify-evenly">
-              <p className="text-[10px] text-black font-bold md:w-[25%]">
+              <p className="text-[10px] text-black font-bold md:w-[25%] md:text-white/75 md:text-[14px] md:font-normal">
                 Room Info
               </p>
               <div className="relative h-[50%] w-full gridLayout">
                 <div className="relative h-full w-full flex items-center justify-end">
-                  <p className="text-[10px] text-black mr-[5px]">Room Name:</p>
+                  <p className="text-[10px] text-black mr-[5px] md:text-[12px] md:text-white/75">
+                    Room Name:
+                  </p>
                 </div>
                 <div className="relative h-full w-full flex items-center justify-start">
-                  <p className="text-[10px] text-black">{roomInfo.name}</p>
+                  <p className="text-[10px] text-black md:text-[12px] md:text-white/75">
+                    {roomInfo.name}
+                  </p>
                 </div>
               </div>
             </div>
             <button
-              className="h-[20px] w-[85px] rounded-[4px] border-[1px] border-[#1e1e1e]/25 text-[#1e1e1e]/75 text-[10px]"
+              className="h-[20px] w-[85px] rounded-[4px] border-[1px] border-[#1e1e1e]/25 text-[#1e1e1e]/75 text-[10px] md:mt-[5px] md:border-white/75 md:text-white/75"
               onClick={() => leaveRoomHandler!()}
             >
               Leave Room
@@ -247,15 +251,17 @@ const TopNav = ({
             ) : (
               <Link
                 href="/profile"
-                className="absolute right-[5%] cursor-pointer"
+                className="absolute right-[5%] cursor-pointer text-[14px] text-white/75"
               >
-                {user?.username}
+                <button className="relative h-[30px] w-[80px] border-[1px] border-white/50 text-white/75 rounded-[50px] text-[12px]">
+                  {user?.username}
+                </button>
               </Link>
             )}
           </>
         )}
       </div>
-      <div className="relative h-1/3 w-full bg-white flex flex-row items-center justify-between">
+      <div className="relative h-1/2 w-full bg-white flex flex-row items-center justify-between">
         {room === undefined || room.length === 0 ? (
           <div className="relative h-full w-full flex items-center justify-center">
             <p className="text-[#7AC74F]/75">no rooms found</p>
@@ -267,7 +273,7 @@ const TopNav = ({
                 return (
                   // container # one
                   <div
-                    className="relative h-full w-[125px] inline-block bg-none overflow-hidden"
+                    className="relative h-full w-[125px] inline-block bg-none overflow-hidden md:w-[150px]"
                     key={key}
                     onClick={() =>
                       credentialHandler(data.room_name, data.room_type)
@@ -276,8 +282,8 @@ const TopNav = ({
                     {/* container # two */}
                     <div className="relative h-full w-full flex items-center justify-center">
                       {/* clickable div */}
-                      <div className="relative h-[75%] w-[85%] bg-[#7AC74F] rounded-[50px] flex items-center justify-center cursor-pointer md:rounded-none md:h-[85%]">
-                        <p className="text-white/75 text-[10px]  md:text-[12px]">
+                      <div className="relative h-[65%] w-[85%] bg-[#7AC74F] rounded-[50px] flex items-center justify-center cursor-pointer md:h-[60%] md:w-[70%]">
+                        <p className="text-white/75 text-[10px] md:text-[11px]">
                           {data.room_name}
                         </p>
                       </div>

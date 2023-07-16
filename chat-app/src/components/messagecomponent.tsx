@@ -17,7 +17,7 @@ const MessageComponent = ({ sender_id, sendername, message }: PropTypes) => {
   }
 
   return (
-    <div className="relative max-h-[150px] w-[95%] m-[2.5%] flex flex-col justify-start">
+    <div className="relative w-[95%] m-[2.5%] my-[0] flex flex-col justify-start">
       <div
         className={`relative h-full max-w-[75%] mx-[5%] my-[2.5%] flex flex-col ${
           isUser === false ? "self-start" : "self-end"
@@ -31,12 +31,13 @@ const MessageComponent = ({ sender_id, sendername, message }: PropTypes) => {
           <></>
         )}
         <div
-          className={`max-w-[150px] text-white text-[12px] p-[15px] md:max-w-[450px] text-normal rounded-[8px] ${
+          className={`h-auto max-w-[150px] text-white text-[12px] p-[15px] text-normal rounded-[8px] wordBreak md:max-w-[450px] md:text-[14px] ${
             isUser === false ? "bg-[#3E3E3E]" : "bg-[#7AC74F]"
           }`}
         >
           {message}
         </div>
+        <div className="clearBreak"></div>
       </div>
     </div>
   );
